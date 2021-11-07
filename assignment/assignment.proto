@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package Employee;
+
+option go_package="github.com/paphuc/protocol-buffers/Employee";
+
+import "transaction/transaction.proto";
+
+service Assignment {
+  rpc InsertAssignment (InsertAssignmentRequest) returns (InsertAssignmentResponse) {}
+}
+
+message InsertAssignmentRequest {
+  string correlationID = 1;
+  int32 ID=2;
+  int32 title=3;
+  transaction.BeginTxResponse beginTxRes = 4;
+}
+
+message InsertAssignmentResponse {
+  int32 rowAffected = 1;
+}
