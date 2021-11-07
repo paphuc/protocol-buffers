@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package Employee;
+package assignment;
 
-option go_package="github.com/paphuc/protocol-buffers/Employee";
+option go_package="github.com/paphuc/protocol-buffers/assignment;assignment";
 
 import "transaction/transaction.proto";
 

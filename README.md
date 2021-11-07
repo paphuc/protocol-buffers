@@ -15,3 +15,4 @@ Then use the following command to generate the code.
 
 
  Example: protoc --go_out=paths=source_relative:.  --go-grpc_out=paths=source_relative:. ./transaction/transaction.proto
+ protoc --go_out=paths=source_relative:.  --go-grpc_out=paths=source_relative:. ./employee/employee.proto
