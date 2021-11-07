@@ -1,4 +1,4 @@
-module protocol-buffers
+module github.com/paphuc/protocol-buffers
 
 go 1.16
 
