@@ -39,21 +39,19 @@ func (c *assignmentClient) InsertAssignment(ctx context.Context, in *InsertAssig
 }
 
 // AssignmentServer is the server API for Assignment service.
-// All implementations must embed UnimplementedAssignmentServer
+// All implementations should embed UnimplementedAssignmentServer
 // for forward compatibility
 type AssignmentServer interface {
 	InsertAssignment(context.Context, *InsertAssignmentRequest) (*InsertAssignmentResponse, error)
-	mustEmbedUnimplementedAssignmentServer()
 }
 
-// UnimplementedAssignmentServer must be embedded to have forward compatible implementations.
+// UnimplementedAssignmentServer should be embedded to have forward compatible implementations.
 type UnimplementedAssignmentServer struct {
 }
 
 func (UnimplementedAssignmentServer) InsertAssignment(context.Context, *InsertAssignmentRequest) (*InsertAssignmentResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method InsertAssignment not implemented")
 }
-func (UnimplementedAssignmentServer) mustEmbedUnimplementedAssignmentServer() {}
 
 // UnsafeAssignmentServer may be embedded to opt out of forward compatibility for this service.
 // Use of this interface is not recommended, as added methods to AssignmentServer will

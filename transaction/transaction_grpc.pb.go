@@ -59,16 +59,15 @@ func (c *transactionClient) Rollback(ctx context.Context, in *CommonTxDoActionRe
 }
 
 // TransactionServer is the server API for Transaction service.
-// All implementations must embed UnimplementedTransactionServer
+// All implementations should embed UnimplementedTransactionServer
 // for forward compatibility
 type TransactionServer interface {
 	BeginTx(context.Context, *BeginTxRequest) (*BeginTxResponse, error)
 	Commit(context.Context, *CommonTxDoActionRequest) (*CommonTxResponse, error)
 	Rollback(context.Context, *CommonTxDoActionRequest) (*CommonTxResponse, error)
-	mustEmbedUnimplementedTransactionServer()
 }
 
-// UnimplementedTransactionServer must be embedded to have forward compatible implementations.
+// UnimplementedTransactionServer should be embedded to have forward compatible implementations.
 type UnimplementedTransactionServer struct {
 }
 
@@ -81,7 +80,6 @@ func (UnimplementedTransactionServer) Commit(context.Context, *CommonTxDoActionR
 func (UnimplementedTransactionServer) Rollback(context.Context, *CommonTxDoActionRequest) (*CommonTxResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Rollback not implemented")
 }
-func (UnimplementedTransactionServer) mustEmbedUnimplementedTransactionServer() {}
 
 // UnsafeTransactionServer may be embedded to opt out of forward compatibility for this service.
 // Use of this interface is not recommended, as added methods to TransactionServer will
