@@ -13,7 +13,7 @@ service Assignment {
 message InsertAssignmentRequest {
   string correlationID = 1;
   int32 ID=2;
-  int32 title=3;
+  string title=3;
   transaction.BeginTxResponse beginTxRes = 4;
 }
 
