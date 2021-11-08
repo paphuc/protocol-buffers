@@ -16,7 +16,7 @@ message EmployeeDetail {
     string salary = 2;
     string homeAddress = 3;
     string title = 4;
-    int32 employeeID = 5;
+    string employeeID = 5;
 }
 
 message InsertEmployeeRequest {
@@ -35,10 +35,10 @@ message InsertEmployeeDetailRequest {
 
 message InsertEmployeeResponse {
   int32 rowAffected = 1;
-  int32 id = 2;
+  string id = 2;
 }
 
 message InsertEmployeeDetailResponse {
   int32 rowAffected = 1;
-  int32 id = 2;
+  string id = 2;
 }
